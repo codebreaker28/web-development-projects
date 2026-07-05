@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stopwatch</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+transition:.4s;
+
+background:linear-gradient(135deg,#141e30,#243b55);
+
+}
+
+body.light{
+
+background:linear-gradient(135deg,#f5f7fa,#c3cfe2);
+
+}
+
+.container{
+
+width:450px;
+
+padding:30px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.1);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+text-align:center;
+
+color:white;
+
+transition:.4s;
+
+}
+
+body.light .container{
+
+background:white;
+
+color:#222;
+
+}
+
+h1{
+
+margin-bottom:20px;
+
+}
+
+#display{
+
+font-size:40px;
+
+font-weight:bold;
+
+margin:20px 0;
+
+letter-spacing:3px;
+
+color:#00ffd9;
+
+}
+
+body.light #display{
+
+color:#0077ff;
+
+}
+
+.buttons{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+button{
+
+padding:15px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:bold;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+
+}
+
+#start{
+
+background:#00c853;
+
+color:white;
+
+}
+
+#pause{
+
+background:#ff9800;
+
+color:white;
+
+}
+
+#reset{
+
+background:#f44336;
+
+color:white;
+
+}
+
+#lap{
+
+background:#2962ff;
+
+color:white;
+
+}
+
+#theme{
+
+background:#673ab7;
+
+color:white;
+
+grid-column:span 2;
+
+}
+
+h2{
+
+margin-top:30px;
+
+margin-bottom:10px;
+
+}
+
+#lapList{
+
+list-style:none;
+
+max-height:220px;
+
+overflow:auto;
+
+}
+
+#lapList li{
+
+padding:12px;
+
+margin:10px 0;
+
+background:rgba(255,255,255,.15);
+
+border-left:5px solid cyan;
+
+border-radius:8px;
+
+}
+
+body.light #lapList li{
+
+background:#ececec;
+
+}
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:cyan;
+
+border-radius:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⏱ Professional Stopwatch</h1>
+
+<div id="display">
+
+00 : 00 : 00 : 000
+
+</div>
+
+<div class="buttons">
+
+<button id="start">▶ Start</button>
+
+<button id="pause">⏸ Pause</button>
+
+<button id="reset">🔄 Reset</button>
+
+<button id="lap">🏁 Lap</button>
+
+<button id="theme">🌙 Dark / ☀ Light Mode</button>
+
+</div>
+
+<h2>Lap Times</h2>
+
+<ul id="lapList"></ul>
+
+</div>
+
+<script>
+
+let display=document.getElementById("display");
+
+let startBtn=document.getElementById("start");
+
+let pauseBtn=document.getElementById("pause");
+
+let resetBtn=document.getElementById("reset");
+
+let lapBtn=document.getElementById("lap");
+
+let themeBtn=document.getElementById("theme");
+
+let lapList=document.getElementById("lapList");
+
+let startTime=0;
+
+let elapsed=0;
+
+let timer;
+
+let running=false;
+
+let dark=true;
+
+
+
+function clickSound(){
+
+const audio=new Audio("https://actions.google.com/sounds/v1/cartoon/pop.ogg");
+
+audio.play();
+
+}
+
+
+
+function update(){
+
+let time=Date.now()-startTime+elapsed;
+
+let ms=time%1000;
+
+let sec=Math.floor(time/1000)%60;
+
+let min=Math.floor(time/60000)%60;
+
+let hr=Math.floor(time/3600000);
+
+display.innerHTML=
+
+String(hr).padStart(2,'0')+" : "+
+
+String(min).padStart(2,'0')+" : "+
+
+String(sec).padStart(2,'0')+" : "+
+
+String(ms).padStart(3,'0');
+
+}
+
+
+
+startBtn.onclick=function(){
+
+clickSound();
+
+if(!running){
+
+startTime=Date.now();
+
+timer=setInterval(update,10);
+
+running=true;
+
+}
+
+}
+
+
+
+pauseBtn.onclick=function(){
+
+clickSound();
+
+if(running){
+
+clearInterval(timer);
+
+elapsed+=Date.now()-startTime;
+
+running=false;
+
+}
+
+}
+
+
+
+resetBtn.onclick=function(){
+
+clickSound();
+
+clearInterval(timer);
+
+running=false;
+
+elapsed=0;
+
+display.innerHTML="00 : 00 : 00 : 000";
+
+lapList.innerHTML="";
+
+}
+
+
+
+lapBtn.onclick=function(){
+
+clickSound();
+
+if(running){
+
+let li=document.createElement("li");
+
+li.innerHTML="Lap "+(lapList.children.length+1)+" ➜ "+display.innerHTML;
+
+lapList.prepend(li);
+
+}
+
+}
+
+
+
+themeBtn.onclick=function(){
+
+clickSound();
+
+document.body.classList.toggle("light");
+
+dark=!dark;
+
+themeBtn.innerHTML=dark?
+
+"🌙 Dark / ☀ Light Mode":
+
+"☀ Light / 🌙 Dark Mode";
+
+}
+
+</script>
+
+</body>
+</html>
