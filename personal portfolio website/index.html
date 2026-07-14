@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ananth B | Software Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+line-height:1.6;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#111827;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+z-index:1000;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#38bdf8;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+.hero{
+padding:130px 8% 80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+min-height:100vh;
+}
+
+.hero-text{
+flex:1;
+min-width:320px;
+}
+
+.hero-text h3{
+font-size:26px;
+}
+
+.hero-text h1{
+font-size:60px;
+margin:15px 0;
+color:#38bdf8;
+}
+
+.hero-text h2{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+max-width:600px;
+color:#d1d5db;
+}
+
+.buttons{
+margin-top:30px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 28px;
+background:#38bdf8;
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:30px;
+margin-right:15px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.hero-image{
+flex:1;
+text-align:center;
+min-width:300px;
+}
+
+.hero-image img{
+width:320px;
+height:320px;
+object-fit:cover;
+border-radius:50%;
+border:8px solid #38bdf8;
+box-shadow:0 0 30px #38bdf8;
+}
+
+section{
+padding:80px 8%;
+}
+
+.title{
+font-size:38px;
+color:#38bdf8;
+margin-bottom:40px;
+text-align:center;
+}
+
+.about{
+display:flex;
+gap:50px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.about img{
+width:300px;
+border-radius:20px;
+border:5px solid #38bdf8;
+}
+
+.about-text{
+flex:1;
+}
+
+.about-text p{
+margin-bottom:18px;
+color:#d1d5db;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.info div{
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.skill-box{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+transition:.4s;
+}
+
+.skill-box:hover{
+transform:translateY(-10px);
+}
+
+.skill-box h3{
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.progress{
+background:#334155;
+height:10px;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.progress span{
+display:block;
+height:100%;
+background:#38bdf8;
+}
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+color:#38bdf8;
+margin-bottom:15px;
+}
+
+.card p{
+color:#d1d5db;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact i{
+font-size:25px;
+margin-right:10px;
+color:#38bdf8;
+}
+
+.social{
+margin-top:25px;
+}
+
+.social a{
+display:inline-block;
+width:50px;
+height:50px;
+line-height:50px;
+border-radius:50%;
+background:#1e293b;
+margin:10px;
+color:white;
+font-size:22px;
+transition:.4s;
+}
+
+.social a:hover{
+background:#38bdf8;
+color:black;
+}
+
+footer{
+background:#111827;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+}
+
+.hero-text h1{
+font-size:42px;
+}
+
+nav{
+display:none;
+}
+
+.about{
+text-align:center;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Ananth B</div>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#education">Education</a>
+
+<a href="#experience">Experience</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#certificates">Certificates</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h3>Hello, I'm</h3>
+
+<h1>Ananth B</h1>
+
+<h2>Software Developer</h2>
+
+<p>
+
+Passionate Software Developer specializing in Java, Python and Web Development. I enjoy creating responsive websites and solving real-world problems using technology.
+
+</p>
+
+<div class="buttons">
+
+<a href="#contact" class="btn">Hire Me</a>
+
+<a href="resume.pdf" class="btn">Download Resume</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="profile.jpg" alt="Profile">
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="title">About Me</h2>
+
+<div class="about">
+
+<img src="profile.jpg" alt="Profile">
+
+<div class="about-text">
+
+<p>
+Hello! I'm <b>Ananth B</b>, a passionate Software Developer with a strong interest in Java, Python, Web Development and problem solving. I enjoy learning new technologies and building applications that provide practical solutions.
+</p>
+
+<p>
+I completed my B.Tech in Artificial Intelligence and Data Science from St. Joseph's College of Engineering, Chennai, with a CGPA of <b>8.30</b>.
+</p>
+
+<div class="info">
+
+<div>
+<strong>Name:</strong><br>
+Ananth B
+</div>
+
+<div>
+<strong>Email:</strong><br>
+bananth871@gmail.com
+</div>
+
+<div>
+<strong>Phone:</strong><br>
++91 7708745705
+</div>
+
+<div>
+<strong>Location:</strong><br>
+Tamil Nadu, India
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2 class="title">Technical Skills</h2>
+
+<div class="skills">
+
+<div class="skill-box">
+<h3>Java</h3>
+<div class="progress">
+<span style="width:90%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>Python</h3>
+<div class="progress">
+<span style="width:85%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>C Programming</h3>
+<div class="progress">
+<span style="width:80%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>HTML</h3>
+<div class="progress">
+<span style="width:95%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>CSS</h3>
+<div class="progress">
+<span style="width:90%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>JavaScript</h3>
+<div class="progress">
+<span style="width:85%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>MySQL</h3>
+<div class="progress">
+<span style="width:80%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>MongoDB</h3>
+<div class="progress">
+<span style="width:75%"></span>
+</div>
+</div>
+
+<div class="skill-box">
+<h3>Git & GitHub</h3>
+<div class="progress">
+<span style="width:85%"></span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2 class="title">Education</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>B.Tech - Artificial Intelligence & Data Science</h3>
+
+<p>
+
+St. Joseph's College of Engineering<br>
+
+Chennai<br><br>
+
+CGPA : <b>8.30</b>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<h2 class="title">Experience</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>Web Development Intern</h3>
+
+<p>
+
+Future Tech Academy
+
+<br><br>
+
+• Developed responsive websites using HTML, CSS and JavaScript.
+
+<br>
+
+• Improved frontend design and user experience.
+
+<br>
+
+• Worked on real-time web projects.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>Tic-Tac-Toe Web Application</h3>
+
+<p>
+
+A responsive Tic-Tac-Toe game developed using HTML, CSS and JavaScript with an attractive user interface.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Stopwatch Web Application</h3>
+
+<p>
+
+Designed a stopwatch with Start, Stop and Reset functionalities using JavaScript.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>To-Do List Application</h3>
+
+<p>
+
+Developed a task management application to add, update and delete daily tasks using JavaScript.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section id="certificates">
+
+<h2 class="title">Certifications</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>NPTEL Certification</h3>
+<p>Successfully completed NPTEL course and earned certification.</p>
+</div>
+
+<div class="card">
+<h3>Infosys Springboard</h3>
+<p>Completed programming and technology courses.</p>
+</div>
+
+<div class="card">
+<h3>Great Learning</h3>
+<p>Completed professional certification in software technologies.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+Email :
+<a href="mailto:bananth871@gmail.com" style="color:white;text-decoration:none;">
+bananth871@gmail.com
+</a>
+
+</p>
+
+<br>
+
+<p>
+
+<i class="fa-solid fa-phone"></i>
+
+Phone :
+<a href="tel:+917708745705" style="color:white;text-decoration:none;">
++91 7708745705
+</a>
+
+</p>
+
+<div class="social">
+
+<a href="https://github.com/codebreaker28" target="_blank">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="https://www.linkedin.com/in/ananth-b-0b743b316" target="_blank">
+
+<i class="fab fa-linkedin"></i>
+
+</a>
+
+<a href="mailto:bananth871@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+</div>
+
+<br>
+
+<a href="resume.pdf" class="btn">Download Resume</a>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Ananth B | Software Developer
+
+</p>
+
+</footer>
+
+<button id="topBtn"
+style="
+display:none;
+position:fixed;
+bottom:30px;
+right:30px;
+padding:14px 18px;
+font-size:20px;
+border:none;
+border-radius:50%;
+background:#38bdf8;
+cursor:pointer;
+">
+
+↑
+
+</button>
+
+<script>
+
+const topBtn=document.getElementById("topBtn");
+
+window.onscroll=function(){
+
+if(document.documentElement.scrollTop>300){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+};
+
+topBtn.onclick=function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+const cards=document.querySelectorAll(".card,.skill-box");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(40px)";
+
+card.style.transition="0.8s";
+
+observer.observe(card);
+
+});
+
+</script>
+
+</body>
+
+</html>
